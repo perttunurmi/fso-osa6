@@ -9,10 +9,19 @@ const notificationSlicer = createSlice({
       return action.payload
     },
     clearMessage() {
-      return ""
+      return ''
     },
   }
 })
 
 export default notificationSlicer.reducer
-export const { setMessage, clearMessage, vote } = notificationSlicer.actions
+export const { setMessage, clearMessage } = notificationSlicer.actions
+
+export const setNotification = (message, time) => {
+  return async dispatch => {
+    dispatch(setMessage(message))
+    setTimeout(() => {
+      dispatch(clearMessage())
+    }, time * 1000)
+  }
+}
