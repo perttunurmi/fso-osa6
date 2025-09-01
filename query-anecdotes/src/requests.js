@@ -8,7 +8,7 @@ export const getAnecdotes = async () => {
 }
 
 export const createAnecdote = async (anecdote) => {
-  const res = await axios.post(baseUrl, { content: anecdote.content, votest: anecdote.votes })
+  const res = await axios.post(baseUrl, { content: anecdote.content, votes: anecdote.votes })
   return res.data
 }
 
